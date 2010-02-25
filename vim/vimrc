@@ -23,9 +23,9 @@ set textwidth=80                " (tw) number of columns before an automatic lin
 set formatoptions=croq          " (fo) influences how vim automatically formats text
 set backspace=indent,eol,start  " (bs) allows backspacing beyond starting point of insert mode, indents and line breaks
 set nrformats+=alpha            " (nf) adds alpha chars to list that gets incremented/decremented with ^A/^X
-set lcs=tab:>-,trail:·,eol:¬    " (lcs) strings used in 'list' mode to show hidden characters (default=eol:$)
-set listchars+=precedes:<       " (lcs) when 'nowrap', character to indicate that line continues off the page
-set listchars+=extends:>
+set lcs=tab:␉_,trail:·,eol:¬    " (lcs) strings used in 'list' mode to show hidden characters (default=eol:$)
+set listchars+=precedes:→      " (lcs) when 'nowrap', character to indicate that line continues off the page
+set listchars+=extends:←
 set list
 set winminheight=0              " (wmh) the minimal height of the window when it's not the current window
 
@@ -82,6 +82,9 @@ filetype plugin indent on
 autocmd FileType html :set filetype=xhtml " we couldn't care less about html
 
 set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
+
+" Markdown files get autowrap for text
+autocmd FileType markdown :set formatoptions=tcoq
 
 " Sessions ********************************************************************
 " Sets what is saved when you save a session
