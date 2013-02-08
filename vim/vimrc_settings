@@ -55,6 +55,8 @@ set foldcolumn=0                " (fdc) width of fold column (to see where folds
 set foldmethod=syntax           " (fdm) creates folds that make sense for the language
 set foldenable                  " (fen) enables or disables folding
 
+set clipboard=unnamed           " copy/paste to "* by default
+
 let mapleader=","
 
 set backup
