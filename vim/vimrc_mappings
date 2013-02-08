@@ -130,3 +130,21 @@ nnoremap <Leader>s :let a=input("Replace \"<C-r><C-w>\" with: ") \| %s/<C-r><C-w
 " not really sure what defines this, but it slows down my ,s
 " unmapping until I get rid of it's origin
 " unmap <Leader>swp
+
+function! s:toggle_ruby_symbol_string()
+  let save_cursor = getpos(".")
+
+  normal! viw`<h"lyl
+  let first_char = @l
+
+  if first_char == ':'
+    normal! xi"`>a"
+  else
+    normal! xi:`>lx
+  end
+
+  call setpos('.', save_cursor)
+endfunction
+
+" toggle strings and symbols
+nnoremap <Leader>: :call <SID>toggle_ruby_symbol_string()<cr>
