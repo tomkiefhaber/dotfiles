@@ -245,3 +245,20 @@ EOS
     echo Must provide name of author to grep on.
   fi
 }
+
+function pairwith {
+  if [ $1 ]; then
+    if [ $1 == "self" ]; then
+      unset GIT_AUTHOR_NAME
+      echo Pairing with self... ಠ_ಠ
+    else
+      export GIT_AUTHOR_NAME="${1} & Garvin"
+      echo $1 > ~/.last_pairwith
+      echo Committing as ${GIT_AUTHOR_NAME}
+    fi
+  else
+    other=$(cat ~/.last_pairwith)
+    export GIT_AUTHOR_NAME="${other} & Garvin"
+    echo Committing as ${GIT_AUTHOR_NAME}
+  fi
+}
