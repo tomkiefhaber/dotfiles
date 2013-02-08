@@ -3,7 +3,6 @@ set show-date = local
 set show-rev-graph = yes
 set show-refs = yes
 set commit-order = topo
-set read-git-colors = no
 set show-line-numbers = yes
 set line-number-interval = 1
 set horizontal-scroll = 33%
@@ -16,6 +15,5 @@ set diff-context = 8
 bind diff g move-first-line
 bind diff G move-last-line
 
-bind generic F !git fetch
 bind main Q none
 bind main C !git cherry-pick %(commit)
