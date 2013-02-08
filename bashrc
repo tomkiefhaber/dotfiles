@@ -192,3 +192,56 @@ fi
 # VI Mode
 
 set -o vi
+
+function git_remote_branch_report {
+  if [ $1 ]; then
+    for k in `git branch -r | sed "s/ ->.*//"`;do echo -e `git log -1 --pretty=format:"%Cgreen%ci^%Cblue%cr^%Cred%an^%Creset^" "$k"`\\t"$k";done | sort -r | grep -i $1 | column -t -s^
+  else
+    for k in `git branch -r | sed "s/ ->.*//"`;do echo -e `git log -1 --pretty=format:"%Cgreen%ci^%Cblue%cr^%Cred%an^%Creset^" "$k"`\\t"$k";done | sort -r | column -t -s^
+  fi
+}
+
+function git_remote_branch_kill_by_author {
+  if [ $1 ]; then
+    read -r -d '' RUBY <<-'EOS'
+      $remove_remaining = false
+      $commands = []
+
+      def remove(remote_ref)
+        $commands << "git push origin :#{remote_ref}"
+      end
+
+      puts "Reading branches for #{ARGV[0]}..."
+      lines = %x(for k in `git branch -r | sed "s/ ->.*//"`; do echo `git log -1 --pretty=format:"%Cgreen%ci^%Cblue%cr^%Cred%an^%Creset^" "$k"` "$k"; done | sort -r | grep -i #{ARGV[0]}).split("\n")
+      puts "Got #{lines.size} refs.\n"
+
+      lines.each do |l|
+        parts = l.split(/\s*\^\s*/)
+        remote_ref = parts[-1].gsub(/origin\//, '')
+        print parts.join("  ")
+        if $remove_remaining
+          puts
+          remove remote_ref
+        else
+          print "   Remove? (y/n/a): "
+          input = STDIN.gets.chomp
+          if input == "a"
+            puts "Removing remaining!"
+            $remove_remaining = true
+            remove(remote_ref)
+          elsif input == "y"
+            remove(remote_ref)
+          end
+        end
+      end
+
+      puts "Please wait while the branches are deleted..."
+      $commands.each { |c| puts c; system(c) }
+      puts "Done."
+EOS
+    echo "$RUBY" > /tmp/_grbkba.rb
+    ruby /tmp/_grbkba.rb $1
+  else
+    echo Must provide name of author to grep on.
+  fi
+}
