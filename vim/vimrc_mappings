@@ -123,3 +123,10 @@ nnoremap <silent> <Leader>A yiw:Ack <C-r>"<cr>
 
 " opposite of join, splits on spaces
 nnoremap <Leader>J :s/ \+/\r/g \| nohlsearch<cr>
+
+" replace all instances of word under cursor
+nnoremap <Leader>s :let a=input("Replace \"<C-r><C-w>\" with: ") \| %s/<C-r><C-w>/\=a/g<cr>
+"
+" not really sure what defines this, but it slows down my ,s
+" unmapping until I get rid of it's origin
+" unmap <Leader>swp
