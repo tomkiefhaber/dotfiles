@@ -48,6 +48,7 @@ alias gsl="git shortlog -sn"
 alias gw="git whatchanged"
 alias gsr="git svn rebase"
 alias gsp="git svn dcommit"
+alias gsui="git submodule update --init"
 alias ts="tig status"
 
 # Useful report of what has been committed locally but not yet pushed to another
