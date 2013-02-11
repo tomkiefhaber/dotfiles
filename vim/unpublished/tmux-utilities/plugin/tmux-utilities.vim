@@ -1,22 +1,33 @@
 " Tmux Utilities plugin
 " Maintainer: Jim Garvin <jim@thegarvin.com>
 
-let g:TmuxRspecSession = "/tmp/side"
-let g:TmuxRspecPane    = "1.3"
-let g:TmuxRspecCmd     = "bundle exec spec"
-let g:TmuxRspecOpts    = "--drb"
+if !exists("g:TmuxTargetSession")
+  echohl ErrorMsg | echomsg "Tmux Utilities: g:TmuxTargetSession must be set."
+endif
 
-function! TmuxSendKeys(sessionSocket, targetPane, string)
-  call system("tmux -S " . a:sessionSocket . " send-keys -t " . a:targetPane . " " . a:string)
+if !exists("g:TmuxTargetPane")
+  echohl ErrorMsg | echomsg "Tmux Utilities: g:TmuxTargetPane must be set."
+endif
+
+if !exists("g:TmuxRspecCmd")
+  let g:TmuxRspecCmd  = "bundle exec spec"
+endif
+
+if !exists("g:TmuxRspecOpts")
+  let g:TmuxRspecOpts = "--drb"
+endif
+
+function! TmuxSendKeys(string)
+  call system("tmux -S " . g:TmuxTargetSession . " send-keys -t " . g:TmuxTargetPane . " " . a:string)
   redraw!
 endfunction
 
-function! TmuxRunCommand(sessionSocket, targetPane, string)
-  call TmuxSendKeys(a:sessionSocket, a:targetPane, "\"" . a:string . "\" Enter &")
+function! TmuxRunCommand(string)
+  call TmuxSendKeys("\"" . a:string . "\" Enter &")
 endfunction
 
-function! TmuxClearAndRunCommand(sessionSocket, targetPane, string)
-  call TmuxRunCommand(a:sessionSocket, a:targetPane, "clear; tmux clear-history; " . a:string)
+function! TmuxClearAndRunCommand(string)
+  call TmuxRunCommand("clear; tmux clear-history; " . a:string)
 endfunction
 
 function! TmuxRunSpec(...)
@@ -27,7 +38,7 @@ function! TmuxRunSpec(...)
   endif
 
   let cmd = g:TmuxRspecCmd . " " . g:TmuxRspecOpts . " " . specfile
-  call TmuxClearAndRunCommand(g:TmuxRspecSession, g:TmuxRspecPane, cmd)
+  call TmuxClearAndRunCommand(cmd)
 endfunction
 
 function! TmuxRunSpecLine(...)
