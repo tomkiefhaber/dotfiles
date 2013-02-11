@@ -138,3 +138,11 @@ hi link EasyMotionShade  Comment
 " signature plugin
 " Not config for the plugin, just coloring for it.
 hi! link SignColumn LineNr
+
+" tmux/rspec related config
+nnoremap <Leader>RF :cgetfile tmp/quickfix \| copen<cr>
+let g:TmuxTargetSession = "/tmp/side"
+let g:TmuxTargetPane    = "1.2"
+let g:TmuxRspecOpts     = "--require ./.rspec/quickfix_formatter --format QuickfixFormatter:tmp/quickfix --require ./.rspec/progress_with_failures --format ProgressWithFailures --colour --loadby mtime --drb"
+set errorformat=%f:%l\ %n\ %m
+
