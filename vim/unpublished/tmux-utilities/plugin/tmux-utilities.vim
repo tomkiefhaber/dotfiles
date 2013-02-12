@@ -23,7 +23,7 @@ function! TmuxSendKeys(string)
 endfunction
 
 function! TmuxRunCommand(string)
-  call TmuxSendKeys("\"" . a:string . "\" Enter &")
+  call TmuxSendKeys("C-c \"" . a:string . "\" Enter &")
 endfunction
 
 function! TmuxClearAndRunCommand(string)
