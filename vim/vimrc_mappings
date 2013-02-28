@@ -148,3 +148,13 @@ endfunction
 
 " toggle strings and symbols
 nnoremap <Leader>: :call <SID>toggle_ruby_symbol_string()<cr>
+
+" isolate selection
+function! s:isolate_selection() range
+  set foldmethod=manual
+  normal zE
+  exe "1,'<-fold"
+  exe "'>+,$fold"
+endfunction
+
+vnoremap ,f :call <SID>isolate_selection()<cr>
