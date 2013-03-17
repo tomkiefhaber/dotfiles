@@ -39,7 +39,6 @@ bundle "AutoTag",               :git => "https://github.com/vim-scripts/AutoTag.
 bundle "closetag.vim",          :git => "https://github.com/vim-scripts/closetag.vim.git"
 bundle "tComment",              :git => "https://github.com/vim-scripts/tComment.git"
 bundle "Gist.vim",              :git => "https://github.com/vim-scripts/Gist.vim.git"
-bundle "YankRing.vim",          :git => "https://github.com/vim-scripts/YankRing.vim.git"
 bundle "ReplaceWithRegister",   :git => "https://github.com/vim-scripts/ReplaceWithRegister.git"
 bundle "ZoomWin",               :git => "https://github.com/vim-scripts/ZoomWin.git"
 bundle "xml.vim",               :git => "https://github.com/vim-scripts/xml.vim.git"
@@ -54,4 +53,5 @@ bundle "jellybeans.vim",        :git => "https://github.com/nanotech/jellybeans.
 bundle "textobj-word-column.vim", :git => "https://github.com/coderifous/textobj-word-column.vim.git"
 bundle "tagbar",                :git => "https://github.com/majutsushi/tagbar.git"
 bundle "ctrlp.vim.git",         :git => "https://github.com/kien/ctrlp.vim.git"
+bundle "vim-slim",              :git => "https://github.com/bbommarito/vim-slim.git"
 
