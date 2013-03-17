@@ -2,9 +2,9 @@
 
     curl https://raw.github.com/coderifous/dotfiles/master/get.vimfiles.sh | sh
 
-This clones the repo, downloads all the submodules, and links the vim-related dotfiles into
-the current user's home directory.  Running this command should get you up and
-running with this vim config without any other work.
+This clones the repo, installs the vim plugins, and links the vim-related
+dotfiles.  Running this command should get you up and running with this vim
+config without any other work.
 
 ## Make it your own
 
@@ -17,59 +17,54 @@ If you want to copy this Vim config as a base for your own, you should:
 
 ## Highlights
 
-### Turbo Button
-
-This Vim config supports two runtime profiles:
-
-* Normal, with all plugins loaded.
-* Minimal, with no plugins loaded. Super fast startup!
-
-To run Vim without loading plugins use the --noplugins option.
-e.g.
-
-    vim --noplugins
-
-I recommend setting your EDITOR environment variable to use this option:
-
-    export EDITOR="vim --noplugin"
-
-This way you'll have a faster startup when other programs (e.g. git) bring up
-Vim.
-
 ### vimrc Organization
 
 This Vim config (loaded from .vimrc) is broken up across several files that are
-sourced.  Each file performs a different kind of customization.  For instance
-one file is responsible for customizing vim settings, while another file
-is responsible for defining custom key mappings.  All plugin-related
-configuration is stored in it's own file that is loaded conditionally depending
-on whether the --noplugins flag was used.
+sourced.  Each file performs a different kind of customization.
 
-### vim-bundler for plugin management
+* vimrc_settings  - basic vim configuration
+* vimrc_autocmds  - custom autocommands
+* vimrc_commands  - custom ex commands, e.g. :Vimrc
+* vimrc_functions - custom functions, e.g. :call RemoveWhiteSpace()
+* vimrc_mappings  - custom mappings, the goto file for rapidly improving your workflow.
+* vimrc_plugins   - conditionally loaded configuration depending on whether the --noplugins flag was used.
 
-This Vim config uses the
-[vim-bundler](https://github.com/vintikzzz/vim-bundler) ruby gem to manage the
-plugins.  Each plugin is listed in the `vim_bundles` manifest file and is
-configured to use the git submodule installation strategy.
+### Fosters rapid workflow experimentation and extension
 
-vim-bundler relies on pathogen for load path management.
+You should be able access and modify your vim config with the least effort
+possible.
 
-Read more about it in [vim-bundler's
-README](https://github.com/vintikzzz/vim-bundler/blob/master/README.rdoc).
+* `:VimrcMaps` - opens vimrc_mappings for editing
+* `,V` - normal mode mapping that evals the current line as vimscript
+
+With those two helpers, you can quickly add mappings when you recognize a
+pattern in your workflow.
+
+### pathogen for plugin management
+
+This Vim config uses the very popular pathogen plugin to enable modular
+installation of plugins.  It also includes the stupid vim plugin installer.
+
+### Unpublished plugins
+
+Sometimes you go to create a mapping, and you realize you need a function, and
+then a command to go with it, and before you know it you've got a small plugin
+on your hands.  The unpublished/ directory is a place to plop works-in-progress
+that you might later publish for others.  Pathogen is aware of your unpublished
+works.
 
 ### Plugins
 
-Take a look at the vim_bundles file to see all of the included plugins.
+Take a look at the plugins script to see all of the included plugins.
 
-Here's a few faves:
+Here's a sampling:
 
 * [NerdTree](http://github.com/scrooloose/nerdtree) - The missing file drawer for Vim.
-* [lusty](http://github.com/sjbach/lusty) - super fast file navigation
-* [fugitive](http://github.com/tpope/vim-fugitive) - killer git plugin for vim
 * [surround](http://github.com/tpope/vim-surround) - quoting/parenthesizing made simple
 * [AutoClose](http://github.com/vim-scripts/AutoClose) - inserts matching bracket, paren, brace or quote
 * [ack](http://github.com/vim-scripts/ack.vim) - grep for code
-* [tComment](http://github.com/vim-scripts/tComment) - comment plugin
+* [CtrlP](https://github.com/kien/ctrlp.vim) - Fuzzy file, buffer, mru, tag, etc finder
+* [Word Column TextObjects](https://github.com/coderifous/textobj-word-column.vim) - Adds text-objects for word-based columns
 
 Since I write a lot of Ruby, and Ruby on Rails there's a few useful plugins for
 that as well.
