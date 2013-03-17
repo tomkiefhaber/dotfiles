@@ -68,9 +68,9 @@ set background=dark
 syntax on " syntax highlighting
 colorscheme jellybeans
 
-hi TabLine     ctermfg=244 ctermbg=235
-hi TabLineSel  ctermfg=239 ctermbg=233
-hi TabLineFill ctermfg=0 ctermbg=233
+hi TabLineSel  ctermfg=244 ctermbg=235
+hi TabLine     ctermfg=239 ctermbg=233
+hi TabLineFill ctermfg=0   ctermbg=233
 
 set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 
@@ -89,7 +89,3 @@ set complete-=k
 " to use: while in insertion mode and at the BEGINNING of a word, type <ctrl-x> then <ctrl-n>
 "set thesaurus-=/usr/share/dict/mobythes.aur thesaurus+=/usr/share/dict/mobythes.aur
 "set complete-=k complete+=k
-
-hi TabLineFill ctermfg=White ctermbg=0
-hi TabLine     ctermfg=102 ctermbg=0
-hi TabLineSel  ctermfg=0 ctermbg=234
