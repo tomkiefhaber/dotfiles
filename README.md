@@ -40,10 +40,11 @@ possible.
 With those two helpers, you can quickly add mappings when you recognize a
 pattern in your workflow.
 
-### pathogen for plugin management
+### pathogen and the stupid vim plugin installer
 
-This Vim config uses the very popular pathogen plugin to enable modular
-installation of plugins.  It also includes the stupid vim plugin installer.
+This Vim config uses the very popular pathogen plugin to load module vim
+plugins.  For plugin installation, it uses the stupid vim plugin installer: a
+simple bash script.
 
 ### Unpublished plugins
 
