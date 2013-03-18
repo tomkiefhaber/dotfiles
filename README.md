@@ -6,6 +6,11 @@ This clones the repo, installs the vim plugins, and links the vim-related
 dotfiles.  Running this command should get you up and running with this vim
 config without any other work.
 
+The vim status line is configured using the Powerline plugin. This looks best
+with a special font: [Monaco for Powerline](https://gist.github.com/syranez/1871776/raw/d1e0dd8b745a7868444ecb0d1d6cdb593249f9d5/Monaco_Linux-Powerline.ttf).
+Install that and then configure your terminal application (e.g. iTerm 2) to use
+it.
+
 ## Make it your own
 
 If you want to copy this Vim config as a base for your own, you should:
