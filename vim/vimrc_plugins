@@ -63,9 +63,6 @@ autocmd VimEnter * IndentGuidesEnable
 hi IndentGuidesOdd  guibg=#003540  ctermbg=0
 hi IndentGuidesEven guibg=#003540  ctermbg=0
 
-" Tagbar plugin config
-nnoremap <Leader>i :TagbarToggle<CR>
-
 " YankRing plugin config
 nmap yr :YRShow<CR>
 nmap yc :YRClear<CR>
