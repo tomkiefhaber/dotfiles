@@ -48,6 +48,8 @@ nnoremap <Leader>tl :tabmove +1<cr>
 nnoremap <Leader>tH :tabmove 0<cr>
 nnoremap <Leader>tL :tabmove<cr>
 
+nnoremap <C-q> :q<cr>
+
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
 map <up> gk
