@@ -31,7 +31,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'PrtHistory(1)':        ['<up>'],
   \ 'MarkToOpen()':         ['<c-a>'],
   \ }
-map <Leader>l :CtrlPCurFile<CR>
+map <Leader>f :CtrlPCurFile<CR>
 map <Leader>r :CtrlPMRUFiles<CR>
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>g :CtrlPLine<CR>
