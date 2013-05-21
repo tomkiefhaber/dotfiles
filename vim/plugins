@@ -32,7 +32,6 @@ plugins=(
   https://github.com/Lokaltog/vim-powerline.git
 
   https://github.com/vim-scripts/ack.vim.git
-  https://github.com/vim-scripts/AutoClose.git
   https://github.com/vim-scripts/AutoTag.git
   https://github.com/vim-scripts/closetag.vim.git
   https://github.com/vim-scripts/tComment.git
@@ -41,6 +40,7 @@ plugins=(
   https://github.com/vim-scripts/ZoomWin.git
   https://github.com/vim-scripts/xml.vim.git
 
+	https://github.com/Townk/vim-autoclose.git
   https://github.com/danro/rename.vim.git
   https://github.com/vim-scripts/blockle.vim.git
   https://github.com/vim-scripts/utl.vim.git
