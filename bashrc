@@ -135,14 +135,6 @@ export HISTCONTROL=erasedups
 export HISTSIZE=10000
 
 ############################################################
-## Aliases
-############################################################
-
-if [ -e ~/.bash_aliases ] ; then
-  . ~/.bash_aliases
-fi
-
-############################################################
 ## Bash Completion, if available
 ############################################################
 
@@ -185,6 +177,14 @@ source /usr/local/etc/bash_completion.d/cdargs-bash.sh
 if [[ "$USER" == '' ]]; then
   # mainly for cygwin terminals. set USER env var if not already set
   USER=$USERNAME
+fi
+
+############################################################
+## Aliases
+############################################################
+
+if [ -e ~/.bash_aliases ] ; then
+  . ~/.bash_aliases
 fi
 
 ############################################################
