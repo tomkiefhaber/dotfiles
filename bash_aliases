@@ -199,3 +199,5 @@ alias tmux='TERM=screen-256color tmux'
 ############################################################
 alias vi=vim
 alias clcl='clear; tmux clear-history'
+alias cv="TERM=xterm-256color cdb"
+
