@@ -189,9 +189,7 @@ fi
 
 ############################################################
 
-# VI Mode
-
-set -o vi
+set -o emacs
 
 function git_remote_branch_report {
   if [ $1 ]; then
