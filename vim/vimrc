@@ -5,6 +5,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 filetype off
 call pathogen#infect()
 call pathogen#infect("unpublished/{}")
+call pathogen#helptags()
 filetype plugin indent on
 
 source $HOME/.vim/vimrc_settings
