@@ -160,3 +160,7 @@ function! s:isolate_selection() range
 endfunction
 
 vnoremap ,f :call <SID>isolate_selection()<cr>
+
+"ragtag conveniences
+au FileType eruby imap <buffer> > <C-X><Space>
+au FileType eruby imap <buffer> >> <C-X><CR>

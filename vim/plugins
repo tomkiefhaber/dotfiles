@@ -14,6 +14,7 @@ plugins=(
   https://github.com/ecomba/vim-ruby-refactoring.git
   https://github.com/csexton/jekyll.vim.git
   https://github.com/gregsexton/gitv.git
+  https://github.com/xolox/vim-misc.git
   https://github.com/xolox/vim-session.git
 
   https://github.com/tsaleh/vim-align.git
@@ -33,7 +34,7 @@ plugins=(
 
   https://github.com/vim-scripts/ack.vim.git
   https://github.com/vim-scripts/AutoTag.git
-  https://github.com/vim-scripts/closetag.vim.git
+  https://github.com/tpope/vim-ragtag.git
   https://github.com/vim-scripts/tComment.git
   https://github.com/vim-scripts/Gist.vim.git
   https://github.com/vim-scripts/ReplaceWithRegister.git
