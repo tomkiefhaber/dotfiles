@@ -3,8 +3,10 @@
 plugins=(
   https://github.com/tpope/vim-pathogen.git
 
+  https://github.com/MarcWeber/vim-addon-mw-utils.git
+  https://github.com/tomtom/tlib_vim.git
+  https://github.com/garbas/vim-snipmate.git
   https://github.com/scrooloose/nerdtree.git
-  https://github.com/msanders/snipmate.vim.git
   https://github.com/timcharper/textile.vim.git
   https://github.com/vim-ruby/vim-ruby.git
   https://github.com/kchmck/vim-coffee-script.git
@@ -29,31 +31,32 @@ plugins=(
   https://github.com/tpope/vim-surround.git
   https://github.com/tpope/vim-vividchalk.git
   https://github.com/tpope/vim-endwise.git
+  https://github.com/tpope/vim-ragtag.git
+  https://github.com/tpope/vim-abolish.git
+  https://github.com/tpope/vim-eunuch.git
+  https://github.com/tpope/vim-bundler.git
+  https://github.com/tpope/vim-rbenv.git
 
   https://github.com/Lokaltog/vim-powerline.git
 
   https://github.com/vim-scripts/ack.vim.git
   https://github.com/vim-scripts/AutoTag.git
-  https://github.com/tpope/vim-ragtag.git
   https://github.com/vim-scripts/tComment.git
-  https://github.com/vim-scripts/Gist.vim.git
   https://github.com/vim-scripts/ReplaceWithRegister.git
   https://github.com/vim-scripts/ZoomWin.git
   https://github.com/vim-scripts/xml.vim.git
 
-	https://github.com/Townk/vim-autoclose.git
-  https://github.com/danro/rename.vim.git
+  https://github.com/Townk/vim-autoclose.git
   https://github.com/vim-scripts/blockle.vim.git
-  https://github.com/vim-scripts/utl.vim.git
   https://github.com/sjl/gundo.vim.git
   https://github.com/jelera/vim-javascript-syntax.git
-  https://github.com/altercation/vim-colors-solarized.git
   https://github.com/nanotech/jellybeans.vim.git
   https://github.com/coderifous/textobj-word-column.vim.git
   https://github.com/majutsushi/tagbar.git
   https://github.com/kien/ctrlp.vim.git
   https://github.com/slim-template/vim-slim.git
   https://github.com/elixir-lang/vim-elixir.git
+  https://github.com/jnwhiteh/vim-golang.git
 )
 
 bundle_dir=$HOME/.vim/bundle
