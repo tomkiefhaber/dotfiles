@@ -43,6 +43,7 @@ if [ -d /opt/local/lib/postgresql83/bin ] ; then
   PATH="${PATH}:/opt/local/lib/postgresql83/bin"
 fi
 
+PATH=./bin:${PATH}
 PATH=.:${PATH}
 
 ############################################################
