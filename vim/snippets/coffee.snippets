@@ -1,0 +1,18 @@
+snippet log
+	console.log "${1:Got here.}"$2
+snippet logo
+	console.log "${1:`@"`}: %o", ${2:$1}$3
+snippet logs
+	console.log "${1:Debug}: %s", ${2:`@"`}$3
+snippet fn:
+	${1:name}: ->
+	  $2
+snippet fna:
+	${1:name}: (${2:options = {}}) ->
+	  $3
+snippet fn=
+	${1:name} = ->
+	  $2
+snippet fna=
+	${1:name} = (${2:options = {}}) ->
+	  $3
