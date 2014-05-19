@@ -11,41 +11,46 @@ if ARGV.length < 2
 end
 
 dev_extension = 'dev'
-filetypes = ['css','html','slim', 'haml', 'sass', 'htm','php','rb','erb','less','js', 'coffee', 'deface']
+filetypes = ['css','html','slim', 'haml', 'sass', 'scss', 'htm','php','rb','erb','less','js', 'coffee', 'deface']
 watch_folder = ARGV[0]
 keyword = ARGV[1]
+app = ARGV[2] || "Google Chrome"
 puts "Watching #{watch_folder} and subfolders for changes in project files..."
 
 while true do
-  files = []
-  filetypes.each {|type|
-    files += Dir.glob( File.join( watch_folder, "**", "*.#{type}" ) )
-  }
-  new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
-  hash ||= new_hash
-  diff_hash = new_hash - hash
+  begin
+    files = []
+    filetypes.each {|type|
+      files += Dir.glob( File.join( watch_folder, "**", "*.#{type}" ) )
+    }
+    new_hash = files.collect {|f| [ f, File.stat(f).mtime.to_i ] }
+    hash ||= new_hash
+    diff_hash = new_hash - hash
 
-  unless diff_hash.empty?
-    hash = new_hash
+    unless diff_hash.empty?
+      hash = new_hash
 
-    diff_hash.each do |df|
-      puts "Detected change in #{df[0]}, refreshing"
-      %x{osascript<<ENDGAME
-        tell application "Google Chrome"
-          set windowList to every window
-          repeat with aWindow in windowList
-            set tabList to every tab of aWindow
-            repeat with atab in tabList
-              if (URL of atab contains "#{keyword}") then
-                tell atab to reload
-              end if
+      diff_hash.each do |df|
+        puts "Detected change in #{df[0]}, refreshing"
+        %x{osascript<<ENDGAME
+          tell application "#{app}"
+            set windowList to every window
+            repeat with aWindow in windowList
+              set tabList to every tab of aWindow
+              repeat with atab in tabList
+                if (URL of atab contains "#{keyword}") then
+                  tell atab to reload
+                end if
+              end repeat
             end repeat
-          end repeat
-        end tell
+          end tell
 ENDGAME
 }
+      end
     end
-  end
 
-  sleep 1
+    sleep 1
+ rescue Error::ENOENT => e
+   puts "File missing: #{e}"
+ end
 end
