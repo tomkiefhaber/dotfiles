@@ -116,6 +116,7 @@ alias be="b exec"
 alias bi="b install --path vendor"
 alias bil='bi --local'
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
+alias bo="EDITOR=vim b open"
 
 ############################################################
 ## Ruby
@@ -200,4 +201,3 @@ alias tmux='TERM=screen-256color tmux'
 alias vi=vim
 alias clcl='clear; tmux clear-history'
 alias cv="TERM=xterm-256color cdb"
-
