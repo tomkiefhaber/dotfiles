@@ -52,10 +52,10 @@ alias gst="git stash"
 alias gstp="git stash pop"
 alias ts="tig status"
 alias gsui="git submodule update --init"
-alias gup="glr && gsui"
 alias grb="git rebase "
 alias gri="git rebase -i "
 alias gmo="git merge origin/master"
+alias gup='gst && glr && gstp'
 
 # Useful report of what has been committed locally but not yet pushed to another
 # branch.  Defaults to the remote origin/master.  The u is supposed to stand for
