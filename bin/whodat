@@ -1,0 +1,3 @@
+echo User sessions:
+echo
+who | awk '{ print $1 }' | sort | uniq -c
