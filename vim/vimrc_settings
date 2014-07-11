@@ -73,6 +73,15 @@ hi TabLineSel  ctermfg=244 ctermbg=235
 hi TabLine     ctermfg=239 ctermbg=233
 hi TabLineFill ctermfg=0   ctermbg=233
 
+" Customizations for pretty iterm backgrounds
+hi Normal       ctermbg=none
+hi VertSplit    ctermbg=none
+hi StatusLineNC ctermbg=none
+hi TabLine      ctermbg=none
+hi TabLineFill  ctermbg=none
+hi NonText      ctermbg=none
+hi LineNr       ctermbg=none
+
 set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
 
 " Sets what is saved when you save a session
