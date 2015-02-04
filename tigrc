@@ -1,19 +1,14 @@
-set show-author = full
-set show-date = local
-set show-rev-graph = yes
-set show-refs = yes
 set commit-order = topo
-set show-line-numbers = yes
-set line-number-interval = 1
 set horizontal-scroll = 33%
 set blame-options = -C
 set tab-size = 2
 set line-graphics = utf8
-set show-notes = yes
+set show-notes = true
 set diff-context = 8
+set vertical-split = true
+set refresh-mode = auto
 
 bind diff g move-first-line
 bind diff G move-last-line
 
-bind main Q none
 bind main C !git cherry-pick %(commit)
