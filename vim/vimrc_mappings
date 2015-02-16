@@ -158,7 +158,7 @@ function! s:isolate_selection() range
   exe "'>+,$fold"
 endfunction
 
-vnoremap ,f :call <SID>isolate_selection()<cr>
+vnoremap <Leader>z :call <SID>isolate_selection()<cr>
 
 "ragtag conveniences
 au FileType eruby imap <buffer> > <C-X><Space>
