@@ -4,6 +4,7 @@
 augroup filetypes
   au BufNewFile,BufRead *.erb.deface set filetype=eruby
   au BufNewFile,BufRead *.slim.deface set filetype=slim
+  au BufNewFile,BufRead *.slim set filetype=slim
 augroup end
 
 augroup whitespace
