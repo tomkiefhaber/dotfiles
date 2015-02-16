@@ -85,10 +85,9 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-" nmap <F5 run current spec in tmux pane
-nmap <silent> <F5> :!tmux -S /tmp/side send-keys -t 1.3 "clear; tmux clear-history; bundle exec rspec %" Enter &<cr> | redraw!
-
 nmap <silent> <Leader>ag "ayiw:Ag <C-r>"<cr>
+
+nnoremap <F1> :redraw!<CR>
 
 " <F7> toggles hidden characters
 map  <F7> :set list!<CR>
