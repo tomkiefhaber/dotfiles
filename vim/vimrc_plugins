@@ -5,6 +5,9 @@
 " If we start up vim with --noplugins then we get faster startup, but some of
 " the commands in this file might error if the plugins aren't loaded.
 
+" vim-addon-local-vimrc plugin
+let g:local_vimrc = { 'names': ['local.vim'] }
+
 " Blockle Plugin
 let g:blockle_mapping = '<Leader>d'
 
