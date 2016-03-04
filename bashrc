@@ -118,7 +118,7 @@ shopt -s extglob
 shopt -s checkwinsize
 
 export PAGER="less"
-export EDITOR="vim --noplugins"
+export EDITOR="vim"
 
 ############################################################
 ## History
