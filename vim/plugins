@@ -22,7 +22,6 @@ plugins=(
   https://github.com/xolox/vim-session.git
 
   https://github.com/tsaleh/vim-align.git
-  https://github.com/tsaleh/vim-matchit.git
 
   https://github.com/tpope/vim-fugitive.git
   https://github.com/tpope/vim-git.git
@@ -47,6 +46,7 @@ plugins=(
   https://github.com/vim-scripts/ReplaceWithRegister.git
   https://github.com/vim-scripts/ZoomWin.git
   https://github.com/vim-scripts/xml.vim.git
+  https://github.com/vim-scripts/matchit.zip.git
 
   https://github.com/Townk/vim-autoclose.git
   https://github.com/vim-scripts/blockle.vim.git
