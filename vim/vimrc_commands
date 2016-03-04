@@ -2,14 +2,16 @@
 " ------------------------------------------------------------
 
 " easily get to vim config
-command Vimrc        :e ~/.vimrc
+command Vimrc          :e ~/.vimrc
 command VimrcCommands  :e ~/.vim/vimrc_commands
 command VimrcFunctions :e ~/.vim/vimrc_functions
 command VimrcMaps      :e ~/.vim/vimrc_mappings
 command VimrcPlugins   :e ~/.vim/vimrc_plugins
 command VimrcSettings  :e ~/.vim/vimrc_settings
-command VimPlugins   :e ~/.vim/plugins
+command VimPlugins     :e ~/.vim/plugins
 command VimNT :NERDTree ~/.vim
+
+command LocalVim :e local.vim
 
 " easily get to bashrc
 command Bashrc :e ~/.bashrc
