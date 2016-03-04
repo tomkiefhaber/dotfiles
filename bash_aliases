@@ -56,6 +56,7 @@ alias grb="git rebase "
 alias gri="git rebase -i "
 alias gmo="git merge origin/master"
 alias gup='gst && glr && gstp'
+alias amend="g commit --amend"
 
 # Useful report of what has been committed locally but not yet pushed to another
 # branch.  Defaults to the remote origin/master.  The u is supposed to stand for
@@ -171,6 +172,9 @@ alias sg="script/generate"
 alias sc="script/console"
 alias tl='tail -f log/development.log'
 alias rtags='ctags -e -R app lib vendor tasks'
+alias rdbm='rake db:migrate'
+alias test="RAILS_ENV=test"
+alias dev="RAILS_ENV=development"
 
 ############################################################
 ## Miscellaneous
