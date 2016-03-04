@@ -41,6 +41,7 @@ autocmd FileType c,h,js         setlocal mps+==:;      " allow the match pairs o
 autocmd FileType c,h            setlocal cindent       " enable the intelligent cindent (cin) feature for the following files
 autocmd FileType js             setlocal smartindent   " enable the smartindenting (si) feature for the following files
 autocmd FileType txt            setlocal fo+=tn
+autocmd FileType xhtml,html,xml,slim,haml,css,sass setlocal iskeyword+=-  " makes dashes part of keywords (e.g. css names, attributes, etc)
 
 " Create directories on demand when saving files.
 " From http://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
