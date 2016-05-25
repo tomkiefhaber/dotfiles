@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PAGER= ${PAGER:=more}
+
 plugins=(
   https://github.com/tpope/vim-pathogen.git
 
