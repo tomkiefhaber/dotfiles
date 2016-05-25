@@ -1,0 +1,78 @@
+snippet log
+console.log "${1:Got here.}"$2
+endsnippet
+
+snippet logo
+console.log "${1:`@"`}: %o", ${2:$1}$3
+endsnippet
+
+snippet logs
+console.log "${1:Debug}: %s", ${2:`@"`}$3
+endsnippet
+
+snippet : "name: ->" b
+${1:name}: ->
+  $2
+endsnippet
+
+snippet : "name: (arg) ->" b
+${1:name}: (${2:arg}) ->
+  $3
+endsnippet
+
+snippet set "setFoo: (@foo) ->" bA
+set${1:Name}: (@${1/.*/\l$0/}) ->
+endsnippet
+
+snippet get "getFoo: -> @foo" bA
+get${1:Name}: -> @${1/.*/\l$0/}
+endsnippet
+
+snippet "([a-zA-Z0-9_]+):" "method: (a) ->" rb
+`!p snip.rv = match.group(1)`: ${2:(${3:arg})} ->
+  $4
+endsnippet
+
+snippet link: "link: (...)" bA
+link: ($scope, $elem, $attrs, ctrl) ->
+endsnippet
+
+snippet controller: "controller: (...) ->" bA
+controller: ($scope) ->
+  $1
+endsnippet
+
+snippet "app =" "app = angular.module(...)" bA
+app = angular.module("${1:name}"${2:, [$3]})
+
+$4
+endsnippet
+
+snippet app.dir "app.directive" bA
+app.directive "${1:name}", ->
+  restrict: 'A'
+  ${2:transclude: true}
+  ${3:scope: \{}}
+  ${4:templateUrl: "$5"}
+endsnippet
+
+snippet app.fac "app.factory" bA
+app.factory "${1:name}", ->
+  $2
+endsnippet
+
+snippet app.val "app.value" bA
+app.value "${1:name}", $2
+endsnippet
+
+snippet app.val "app.value { }" bA
+app.value "${1:name}", {
+  $2
+}
+endsnippet
+
+snippet app.val "app.value [ ]" bA
+app.value "${1:name}", [
+  $2
+]
+endsnippet

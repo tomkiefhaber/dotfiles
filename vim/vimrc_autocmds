@@ -6,6 +6,7 @@ augroup filetypes
   au BufNewFile,BufRead *.slim.deface set filetype=slim
   au BufNewFile,BufRead *.slim set filetype=slim
   au BufNewFile,BufRead *.jbuilder set filetype=ruby
+  au BufNewFile,BufRead *.nunjucks set filetype=html
 augroup end
 
 augroup whitespace
@@ -33,15 +34,15 @@ autocmd FileType c          setlocal omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
 
 " File Specific Settings
-autocmd FileType xhtml,html,xml setlocal tabstop=2
-autocmd FileType xhtml,html,xml setlocal shiftwidth=2
-autocmd FileType xhtml,html,xml setlocal expandtab     " (et) expand tabs to spaces (use :retab to redo entire file)
-autocmd FileType xhtml,html,xml setlocal softtabstop=2 " (sts) makes spaces feel like tabs (like deleting)
+autocmd FileType xhtml,html,xml,css,scss,sass,coffee,js setlocal tabstop=2
+autocmd FileType xhtml,html,xml,css,scss,sass,coffee,js setlocal shiftwidth=2
+autocmd FileType xhtml,html,xml,css,scss,sass,coffee,js setlocal expandtab     " (et) expand tabs to spaces (use :retab to redo entire file)
+autocmd FileType xhtml,html,xml,css,scss,sass,coffee,js setlocal softtabstop=2 " (sts) makes spaces feel like tabs (like deleting)
 autocmd FileType c,h,js         setlocal mps+==:;      " allow the match pairs operation (%) to work with '=' and ';'
 autocmd FileType c,h            setlocal cindent       " enable the intelligent cindent (cin) feature for the following files
 autocmd FileType js             setlocal smartindent   " enable the smartindenting (si) feature for the following files
 autocmd FileType txt            setlocal fo+=tn
-autocmd FileType xhtml,html,xml,slim,haml,css,sass setlocal iskeyword+=-  " makes dashes part of keywords (e.g. css names, attributes, etc)
+autocmd FileType xhtml,html,xml,slim,haml,css,scss,sass setlocal iskeyword+=-  " makes dashes part of keywords (e.g. css names, attributes, etc)
 
 " Create directories on demand when saving files.
 " From http://stackoverflow.com/questions/4292733/vim-creating-parent-directories-on-save
