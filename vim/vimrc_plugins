@@ -56,7 +56,7 @@ nmap gL :Gitv! --all<CR>
 vmap gL :Gitv! --all<CR>
 
 " Jekyll plugin config
-let g:jekyll_path = "~/Projects/coderifous.github.com"
+let g:jekyll_path = "~/Projects/tomkiefhaber.github.com"
 
 " IndentGuides plugin config
 let g:indent_guides_guide_size  = 1
