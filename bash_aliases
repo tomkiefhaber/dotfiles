@@ -52,6 +52,7 @@ alias gst="git stash"
 alias gstp="git stash pop"
 alias ts="tig status"
 alias gsui="git submodule update --init"
+alias gsur="git submodule update --remote"
 alias grb="git rebase "
 alias gri="git rebase -i "
 alias gmo="git merge origin/master"
@@ -124,10 +125,11 @@ alias bo="EDITOR=vim b open"
 ############################################################
 
 alias r="rake"
-alias a="rake db:test:clone && autotest -q"
+alias s="spring"
 alias smp="staticmatic preview ."
 alias irb="echo Don\\'t you really want pry? or type irbirb."
 alias irbirb="\\irb"
+alias bs="browser-sync start --files=\"app/assets/stylesheets/**/*.sass,app/assets/javascripts/**/*.coffee,app/views/**/*.slim,vendor/assets/**/*\" --port=3001 --proxy "
 
 # export GEMS=`gem env gemdir`/gems
 # function gemfind {
