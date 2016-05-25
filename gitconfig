@@ -32,3 +32,5 @@
 [core]
 	excludesfile = /Users/jgarvin/.gitignore_global
 	editor = vim --noplugins
+[rerere]
+	enabled = true
