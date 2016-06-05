@@ -72,6 +72,10 @@ ruby <<EOF
   end
 EOF
 
+if !exists("g:WorkingSetSearchPrefix")
+  let g:WorkingSetSearchPrefix = ""
+endif
+
 function! s:WS_EnsureConnection()
   ruby << EOF
     $WS_connection ||= WorkingSetConnection.new
