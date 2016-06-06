@@ -4,14 +4,20 @@ ruby <<EOF
   class WorkingSetConnection
     attr_accessor :socket, :listener_thread
 
-    def initialize(host = "localhost", port = 3930)
-      @host = host
-      @port = port
+    # def initialize(host = "localhost", port = 3930)
+    #   @host = host
+    #   @port = port
+    #   build_socket
+    # end
+
+    def initialize(socket_path = ".working_set_socket")
+      @socket_path = socket_path
       build_socket
     end
 
     def build_socket
-      self.socket = TCPSocket.new @host, @port
+      # self.socket = UNIXSocket.new @host, @port
+      self.socket = UNIXSocket.new @socket_path
     end
 
     def close
@@ -72,9 +78,17 @@ ruby <<EOF
   end
 EOF
 
+if !exists("g:WorkingSetSearchPrefix")
+  let g:WorkingSetSearchPrefix = ""
+endif
+
+if !exists("g:WorkingSetSocketPath")
+  let g:WorkingSetSocketPath = ".working_set_socket"
+endif
+
 function! s:WS_EnsureConnection()
   ruby << EOF
-    $WS_connection ||= WorkingSetConnection.new
+    $WS_connection ||= WorkingSetConnection.new VIM::evaluate("g:WorkingSetSocketPath")
 EOF
 endfunction
 
@@ -130,3 +144,4 @@ command! WSWaitForSync call s:WS_wait_for_sync()
 nnoremap <silent> <C-n> :WSSelectNextItem<CR>
 nnoremap <silent> <C-p> :WSSelectPrevItem<CR>
 nnoremap <silent> <Leader>* *N:WSSearchCurrentWord<CR>
+nnoremap <silent> <Leader><Leader> :WSWaitForSync<CR>
