@@ -1,0 +1,104 @@
+*working-set.txt*  Integration for Working Set coding companion.
+
+===============================================================================
+CONTENTS                                                 *working-set-contents*
+
+    1. Intro...............................|working-set-intro|
+    1. Dependency..........................|working-set-dependency|
+    2. Commands............................|working-set-commands|
+    3. Mappings............................|working-set-mappings|
+    4. Contributing........................|working-set-contributing|
+    5. Credits.............................|working-set-credits|
+    6. Changelog...........................|working-set-changelog|
+
+===============================================================================
+INTRO                                                       *working-set-intro*
+
+Working Set is an programming editor companion that makes searching, and using
+search results for jumping around, super nice.
+
+This is the vim plugin that integrates vim with Working Set.  If you're using
+vim 8, then the async features will be used, and the integration is smoother.
+
+If you're using vim 7, there is a fall back plugin that gives you most of the
+features.
+
+===============================================================================
+DEPENDENCY                                             *working-set-dependency*
+
+The Vim 7 version of the plugin uses ruby bindings.
+
+The Vim 8 version of the plugin uses the new async job/channel support.
+Working Set uses UNIX Domain sockets for IPC, which Vim 8 doesn't seem to have
+direct support for (Channels work with TCP sockets, Jobs work with
+stdio/stdin/stderr).  As a work around, this plugin relies on the "socat"
+command to relay messages between vim and the Working Set socket.  So you'll
+need to install that.
+
+On Mac:
+
+  `brew install socat`
+
+TODO: provide instructions for other OSes.
+
+===============================================================================
+COMMANDS                                                 *working-set-commands*
+
+All interaction with Working Set can be driven by commands in ex mode.
+
+    WS {term}        - does a search in Working Set.
+
+    WSSync           - jumps to currently selected location.
+
+    WSSelectNextItem - selects next match in Working Set, then syncs.
+
+    WSSelectPrevItem - selects previous match in Working Set, then syncs.
+
+    WSSearchCurrentWord - does a word-boundary search on the word under the
+                          cursor.
+
+Examples:
+
+  Search for foo:
+
+    :WS foo
+
+  With cursor in the middle of word "business_thing", search for all ocurrences
+  of "business_thing":
+
+    :WSSearchCurrentWord
+
+===============================================================================
+MAPPINGS                                                 *working-set-mappings*
+
+Some default normal mode mappings give convenient access to Working Set
+commands.
+
+  <C-n>     :WSSelectNextItem
+
+  <C-p>     :WSSelectPrevItem
+
+  <Leader>* This does a word match on the word under the cursor in vim (like *)
+            followed by :WSSearchCurrentWord.
+
+===============================================================================
+CONTRIBUTING                                         *working-set-contributing*
+
+The goal of this plugin is to leverage Working Set in the most seamless and
+useful fashion.  If you discover a good use case for Working Set that isn't
+covered by this plugin, then you can submit an issue via github.  If you'd like
+to build the feature yourself, please fork the plugin, make your changes in a
+branch, and then submit a pull request for that branch.
+
+===============================================================================
+CREDITS                                                   *working-set-credits*
+
+Developed by Jim Garvin <http://github.com/coderifous>.
+
+Git repository: https://github.com/coderifous/working-set.vim
+
+===============================================================================
+CHANGELOG                                               *working-set-changelog*
+
+2016/12/25: First Public Release.
+

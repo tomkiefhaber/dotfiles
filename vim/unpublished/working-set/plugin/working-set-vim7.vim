@@ -1,3 +1,5 @@
+if v:version < 800
+
 ruby <<EOF
   require 'socket'
 
@@ -145,3 +147,5 @@ nnoremap <silent> <C-n> :WSSelectNextItem<CR>
 nnoremap <silent> <C-p> :WSSelectPrevItem<CR>
 nnoremap <silent> <Leader>* *N:WSSearchCurrentWord<CR>
 nnoremap <silent> <Leader><Leader> :WSWaitForSync<CR>
+
+endif
