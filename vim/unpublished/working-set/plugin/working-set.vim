@@ -103,7 +103,7 @@ endfunction
 
 function! s:WS_search_current_word()
   let wordUnderCursor = expand("<cword>")
-  call s:WS_search(wordUnderCursor)
+  call s:WS_search("-w " . wordUnderCursor)
 endfunction
 
 function! s:WS_sync()
