@@ -1,0 +1,34 @@
+#!/bin/bash
+
+LOGFILE=~/dailies.log
+
+PRIOR=$(tail -5 $LOGFILE | head -4 | sed 's/^/# /' | ifne -n echo "# No previous log entries")
+
+EDITOR='vim +normal6gg4|'
+
+OUTPUT=$(cat << EOS | vipe
+${PRIOR}
+
+Y: Worked on ...
+T: Working on ...
+B: None.
+EOS)
+
+OUTPUT=$(sed -e '/^#/d'  -e '/^$/d' <<< "$OUTPUT")
+
+echo
+echo "Your checkin:"
+echo
+echo "$OUTPUT"
+echo
+
+read -p "Do you want to post this? (y/N) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  date '+%A %H:%M%p - %Y-%m-%d' >> $LOGFILE
+  echo -e "$OUTPUT\n" >> $LOGFILE
+
+  echo Posting...
+  printf "\`\`\`\n$OUTPUT\n\`\`\`" | slackcat -c engineering -p
+fi
