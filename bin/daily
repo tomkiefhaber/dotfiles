@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 # depends on:
 # - slackcat (gem install slackcat)
@@ -33,7 +33,8 @@ ${PRIOR}
 Y: ${PREVIOUS_T:5}
 T: Working on ...
 B: None.
-EOS)
+EOS
+)
 
 OUTPUT=$(sed -e '/^#/d'  -e '/^$/d' <<< "$OUTPUT")
 
