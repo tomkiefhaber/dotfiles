@@ -49,6 +49,9 @@ let g:loaded_AlignMapsPlugin = 1
 " Git interaction
 nmap gs :Gstatus<CR>
 nmap gb :Gblame<CR>
+nmap gh :Gbrowse<CR>
+vmap gh :Gbrowse<CR>
+
 " Gitv browser mode (shows git log for repo)
 nmap gl :Gitv --all<CR>
 " Gitv file mode (shows git history for current file)
