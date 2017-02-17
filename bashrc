@@ -261,3 +261,10 @@ function pairwith {
     echo Committing as ${GIT_AUTHOR_NAME}
   fi
 }
+
+# kill by name - from Matt Swasey
+function gkill () {
+  pname=$1
+  formatted_pname="[${pname:0:1}]${pname:1}"
+  kill -9 $(ps aux | grep $formatted_pname | awk '{print $2}')
+}
