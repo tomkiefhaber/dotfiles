@@ -195,3 +195,5 @@ nnoremap <Leader>% :call <SID>toggle_ruby_hash_style()<cr>
 " Won't work if line is at bottom of file.
 nnoremap <Leader>dd jmzk"ydd
 nnoremap <Leader>p  mxdd"yP'zP'x
+
+nmap <Leader>wd vatSd<cr>
