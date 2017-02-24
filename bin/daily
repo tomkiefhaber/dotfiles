@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# depends on:
+# - slackcat (gem install slackcat)
+# - vipe (brew install moreutils)
+# - ifne (also moreutils)
+
+# setup:
+# SLACK_TOKEN (set in bash profile found: # https://api.slack.com/docs/oauth-test-tokens)
+
+
 LOGFILE=~/dailies.log
 
 PRIOR=$(tail -5 $LOGFILE | head -4 | sed 's/^/# /' | ifne -n echo "# No previous log entries")
