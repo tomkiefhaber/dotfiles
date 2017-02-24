@@ -12,13 +12,14 @@
 LOGFILE=~/dailies.log
 
 PRIOR=$(tail -5 $LOGFILE | head -4 | sed 's/^/# /' | ifne -n echo "# No previous log entries")
+PREVIOUS_T=$(echo "$PRIOR" | head -n3 | tail -n1)
 
 EDITOR='vim +normal6gg4|'
 
 OUTPUT=$(cat << EOS | vipe
 ${PRIOR}
 
-Y: Worked on ...
+Y: ${PREVIOUS_T:5}
 T: Working on ...
 B: None.
 EOS)
