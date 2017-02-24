@@ -15,6 +15,8 @@ PRIOR=$(tail -5 $LOGFILE | head -4 | sed 's/^/# /' | ifne -n echo "# No previous
 PREVIOUS_T=$(echo "$PRIOR" | head -n3 | tail -n1)
 
 EDITOR='vim +normal6gg4|'
+# Hack to position cursor.
+EDITOR='vim +normal1jG2k4|'
 
 OUTPUT=$(cat << EOS | vipe
 ${PRIOR}
