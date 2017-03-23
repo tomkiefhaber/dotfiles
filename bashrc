@@ -268,3 +268,5 @@ function gkill () {
   formatted_pname="[${pname:0:1}]${pname:1}"
   kill -9 $(ps aux | grep $formatted_pname | awk '{print $2}')
 }
+
+alias target='tmux display-message -p "#{pane_id}" > .tmux-target-pane-id'
