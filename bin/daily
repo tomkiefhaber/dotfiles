@@ -15,7 +15,11 @@ PREVIOUS_DATE=$(echo "$PRIOR" | head -1 | awk '{ printf $5 }')
 PREVIOUS_T=$(echo "$PRIOR" | head -n3 | tail -n1)
 
 LAST_NAME=$(git config user.name | awk '{ printf $NF }')
-RECENT_GIT_ACTIVITY=$(git log --author="${LAST_NAME}" --since="${PREVIOUS_DATE}" --all --date='format:%b %e %l:%M %p' --pretty='format:# %cd  %an  %s' )
+RECENT_GIT_ACTIVITY=$( \
+  git log --author="${LAST_NAME}" --since="${PREVIOUS_DATE}" --all --date='format:%b %e %l:%M %p' --pretty='format:# %cd  %an  %s' | \
+  ifne -n \
+  git log --author="${LAST_NAME}" -n10 --all --date='format:%b %e %l:%M %p' --pretty='format:# %cd  %an  %s' \
+)
 
 # Hack to position cursor.
 EDITOR='vim +normal1jG2k4|'
