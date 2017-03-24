@@ -10,6 +10,16 @@
 " g:TmuxRspecCmd      - rspec command
 " g:TmuxRspecOpts     - options to pass to rspec command
 
+function! TmuxReadTargetConfig()
+  if filereadable(".tmux-target")
+    let config = systemlist('cat .tmux-target')
+    let g:TmuxTargetSession = config[0]
+    let g:TmuxTargetPane    = config[1]
+  endif
+endfunction
+
+call TmuxReadTargetConfig()
+
 if !exists("g:TmuxTargetSession")
   echohl ErrorMsg | echomsg "Tmux Utilities: g:TmuxTargetSession must be set."
 endif
@@ -76,6 +86,8 @@ function! TmuxClearAndRunCommand(string, ...)
 endfunction
 
 function! TmuxRunSpec(...)
+  call TmuxReadTargetConfig()
+
   if a:0 > 0
     let specfile = a:1
   else
@@ -99,6 +111,8 @@ function! TmuxRunSpec(...)
 endfunction
 
 function! TmuxRunSpecLine(...)
+  call TmuxReadTargetConfig()
+
   if a:0 > 0
     let specfile = a:1
   else
@@ -127,6 +141,8 @@ function! TmuxRunSpecLine(...)
 endfunction
 
 function! TmuxRunAg(term, ...)
+  call TmuxReadTargetConfig()
+
   if a:0 > 0
     let targetPane = a:1
   else
