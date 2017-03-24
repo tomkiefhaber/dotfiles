@@ -205,6 +205,9 @@ alias top=htop
 
 alias tmux='TERM=screen-256color tmux'
 
+# Sets a particular pane to be the target various tmux-enabled utilities
+alias target='echo $TMUX | cut -f1 -d, > .tmux-target; tmux display-message -p "#{pane_id}" >> .tmux-target'
+
 ############################################################
 alias vi=vim
 alias clcl='clear; tmux clear-history'
