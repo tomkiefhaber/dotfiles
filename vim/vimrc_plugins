@@ -23,7 +23,7 @@ let NERDTreeMouseMode=1
 " Hide javascript files in nerdtree
 command Nojs :let NERDTreeIgnore=[".js$"]
 
-"JSX plugin
+" JSX plugin
 let g:jsx_ext_required = 0
 
 " CtrlP plugin
@@ -138,4 +138,3 @@ let g:TmuxTargetSession = "/tmp/side"
 let g:TmuxTargetPane    = "1.0"
 let g:TmuxRspecOpts     = "--require ./.rspec/quickfix_formatter --format QuickfixFormatter:tmp/quickfix --require ./.rspec/progress_with_failures --format ProgressWithFailures --colour --loadby mtime --drb"
 set errorformat=%f:%l\ %n\ %m
-
