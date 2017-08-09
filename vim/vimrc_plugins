@@ -23,6 +23,9 @@ let NERDTreeMouseMode=1
 " Hide javascript files in nerdtree
 command Nojs :let NERDTreeIgnore=[".js$"]
 
+"JSX plugin
+let g:jsx_ext_required = 0
+
 " CtrlP plugin
 let g:ctrlp_map = '<Leader>e'
 let g:ctrlp_working_path_mode = 0
